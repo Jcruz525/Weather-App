@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+body{
+	font-family: 'Roboto', sans-serif;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+i {
+	margin-right: 10px;
+}
+/*----------bootstrap-navbar-css------------*/	
+.search-bar {
+	position: relative;
+	display: inline-block;
+	margin-right: 20px;
+  }
+  .cityName{
+	display: inline; /* Display the city and state inline */
+  }
+#cityInput{
+	border-radius: 10px;
+	border: none;
+	outline: 0;
+}
+#cityInput {
+	padding-left: 15px; /* Adjust the left padding as needed */
+	padding-right: 30px; /* Adjust the right padding as needed */
+	/* Other styles for your input */
+  }
+  .search-icon {
+	position: absolute;
+	top: 50%;
+	right: 10px; /* Adjust the right positioning as needed */
+	transform: translateY(-50%);
+	cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+  }
+.chartType:hover{
+	cursor: pointer;
+}
+.days:hover{
+	cursor: pointer;
+}
+.sidemenu{
+  display: none !important;
+}
+.navbar-brand:hover{
+  color: white;
+}
+.navbar-brand:active{
+  color: white;
+}
+.navbar-logo{
+	padding: 15px;
+	color: #fff;
+}
+.navbar-mainbg{
+	background-color: #03045e;
+	padding: 0px;
+}
+.card{
+	background-color: #03045e;
+	color: white;
+}
+.cardMulti{
+	background-color: white;
+	margin: 10px;
+	color: #03045e;
+	border-radius: 5%;
+}
+
+.topCont{
+margin-bottom: 0 !important;
+}
+
+.tempType{
+	text-decoration: none;
+	color: white;
+	
+}
+.tempType:hover{
+	cursor: pointer;
+}
+.NotActive{
+opacity: 40%;
+}
+
+

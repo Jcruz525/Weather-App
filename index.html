@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  
+  <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="/script.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+  <script  defer src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+  
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRFEqbzQfWWqMEjICHiTlrjCVM_Hp3mV4&libraries=places&callback=initAutocomplete"></script>
+
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-custom navbar-mainbg d-flex justify-content-between align-items-center">
+        <a class="navbar-brand navbar-logo bi bi-wind ms-4" href="#">Aurora</a>
+        <div class="search-bar">
+          <input type="text" id="cityInput" placeholder="Enter a city">
+          <img src="search.svg" class="search-icon" id="searchButton">
+
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        </div>
+    </nav>
+    
+<!--NAVBAR-->
+<div class="container-fluid">
+	<div class="row mt-4 topCont">
+		<div class="col-md-12 px-5">
+      <div class="card" style="width: 100%; height: 10rem; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border: none;">
+        <div class=" d-flex flex-column justify-content-between align-items-start card-body">
+          <div class="d-flex justify-content-start align-items-start w-100">
+            <div class="d-flex justify-content-start align-items-start w-100">
+            <img class="" src="sun-fill.svg" height="75px" width="75px" alt="">
+            <h1 class="m-3 mr-0 maxValue">5°C</h1>
+            <div class="m-3"><a class="tempType F">F°</a> / <a class="NotActive tempType C">C°</a></div>
+            <div class="info-div" style="font-size: small;">
+              <p class="m-0 precipitation">Precipitation: 0%</p>
+              <p class="m-0 humidity">Humidity: 0%</p>
+              <p class="m-0 wind">Wind: 0%</p>
+              </div>
+            </div>
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <p class="m-0" style="white-space: nowrap;"><h4 class="cityName m-0"></h4></p>
+                <p class="m-1" id="clickedTime">2:00 PM</p>
+                <p class="m-0">Saturday</p>
+                <p class="m-0">Sunny</p>
+                </div>
+          </div>
+          <div class="d-flex ">
+            <p class="mx-2 px-3 chartType Temp">Temperature</p>
+            <p>|</p>
+            <p class="mx-2 px-3 chartType Precip NotActive">Precipitation</p>
+            <p>|</p>
+            <p class="mx-2 px-3 chartType Wind NotActive">Wind</p>
+            </div>
+          </div>
+      </div>
+      <div class="card" style="width: 100%; height: 22rem; border-top-left-radius: 0; border-top-right-radius: 0; border: none;">
+        <canvas id="temperatureChart" style="max-width: 100%; max-height: 90%; position: absolute; bottom: 0;"></canvas>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="card my-2 day1" style="width: 100%; height: 9rem">
+            <div class=" day 1 d-flex flex-column justify-content-center align-items-center card-body">
+              <h3>Sat</h3>
+              <div class="d-flex justify-content-center align-items-center w-50">
+                <img class="" src="sun-fill.svg" height="50px" width="50px" alt="">
+              </div>
+              <p>85° / 71°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 ">
+          <div class="card my-2 day2" style="width: 100%; height: 9rem;">
+            <div class=" d-flex flex-column justify-content-center align-items-center card-body">
+              <h3>Sun</h3>
+              <div class="d-flex justify-content-center align-items-center w-50">
+                <img class="arrow" src="cloud-sun-fill.svg" height="50px" width="50px" alt="">
+              </div>
+              <p>85° / 71°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 day3">
+          <div class="card my-2 day3" style="width: 100%; height: 9rem;">
+            <div class=" d-flex flex-column justify-content-center align-items-center card-body">
+              <h3>Mon</h3>
+              <div class="d-flex justify-content-center align-items-center w-50">
+                <img class="" src="cloud-rain-fill.svg" height="50px" width="50px" alt="">
+              </div>
+              <p>85° / 71°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 day4">
+          <div class="card my-2 day4" style="width: 100%; height: 9rem;">
+            <div class=" d-flex flex-column justify-content-center align-items-center card-body">
+              <h3>Tue</h3>
+              <div class="d-flex justify-content-center align-items-center w-50">
+                <img class="" src="clouds-fill.svg" height="50px" width="50px" alt="">
+              </div>
+              <p>85° / 71°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 day5">
+          <div class="card my-2 day5" style="width: 100%; height: 9rem;">
+            <div class=" d-flex flex-column justify-content-center align-items-center card-body">
+              <h3>Wed</h3>
+              <div class="d-flex justify-content-center align-items-center w-50">
+                <img class="" src="cloud-lightning-rain-fill.svg" height="50px" width="50px" alt="">
+              </div>
+              <p>85° / 71°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 day6">
+          <div class="card my-2" style="width: 100%; height: 9rem;">
+            <div class=" d-flex flex-column justify-content-center align-items-center card-body">
+              <h3>Thu</h3>
+              <div class="d-flex justify-content-center align-items-center w-50">
+                <img class="" src="cloud-lightning-rain-fill.svg" height="50px" width="50px" alt="">
+              </div>
+              <p>85° / 71°</p>
+            </div>
+          </div>
+		</div>
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+  
+</div>
+<!--Header image with Text-->
+</body>
+</html>
