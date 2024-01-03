@@ -1,6 +1,6 @@
 
 
-const apiKey = "79832ea15a303547f960b5d5f827ca0b";
+const apiKey = "79832ea15a3023435453457f960b5d5f827ca0b";
 let city = "New York";
 let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
 let currentTempData = document.getElementById("currentTemp");
