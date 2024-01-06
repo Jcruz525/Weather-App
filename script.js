@@ -56,8 +56,7 @@ async function fetchWeatherData() {
     console.error("Error fetching weather data:", error);
   }
 }
-// Function to create a line chart with temperature data
-// Declare a variable to store the chart object
+
 let temperatureChart;
 let temptype = "imperial";
 let tempLetter = "F"
@@ -81,7 +80,8 @@ const currentTemperature = Math.round(weatherData.list[0].main.temp) || 0;
   const currentHumidity = weatherData.list[0].main.humidity || 0;
   const currentWind = Math.round(weatherData.list[0].wind.speed) || 0;
   highTemp.innerHTML = `${currentTemperature}`
-   // Update precipitation, humidity, and wind in the HTML
+
+  
    const precipitationElement = document.querySelector(".precipitation");
    const humidityElement = document.querySelector(".humidity");
    const windElement = document.querySelector(".wind");
@@ -97,11 +97,12 @@ const currentTemperature = Math.round(weatherData.list[0].main.temp) || 0;
     }
    }
    windType()
-  // Calculate the start time (current hour)
+
+  
   const now = new Date();
   const currentHour = now.getHours();
 
-  // Extract temperature data and labels for the next 7 timestamps (21 hours) starting from the current hour
+  
   for (let i = firstItem; i >= firstItem && i < lastItem; i++) {
     const forecast = weatherData.list[i];
     const timestamp = new Date(forecast.dt * 1000);
