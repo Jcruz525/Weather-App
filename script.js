@@ -123,7 +123,7 @@ const currentTemperature = Math.round(weatherData.list[0].main.temp) || 0;
   }
   
 
-  // Add the current hour's temperature at the beginning
+
   temperatureData.unshift(Math.round(weatherData.list[0].main.temp)); // Add the current hour's temperature
   if (now.getHours() > 12) {
     labels.unshift(`${now.getHours() - 12} PM`);
@@ -223,10 +223,10 @@ const currentTemperature = Math.round(weatherData.list[0].main.temp) || 0;
           event.native.offsetY >= chartArea.top &&
           event.native.offsetY <= chartArea.bottom
         ) {
-          // Change cursor to a pointer when hovering over data points
+          
           ctx.canvas.style.cursor = elements[0] ? "pointer" : "default";
         } else {
-          // Reset cursor style for other areas of the chart
+          
           ctx.canvas.style.cursor = "default";
         }
       },
@@ -255,7 +255,7 @@ const currentTemperature = Math.round(weatherData.list[0].main.temp) || 0;
     },
   });
 }
-// Call the function to create the temperature chart initially
+
 createTemperatureChart();
 
 async function fetchWeatherData() {
@@ -280,15 +280,15 @@ async function createPrecipitationChart() {
   const precipitationData = [];
   const labels = [];
 console.log(weatherData.city)
-  // Calculate the start time (current hour)
+  
   const now = new Date();
   const currentHour = now.getHours();
 
-  // Extract precipitation data and labels for the next 7 timestamps (21 hours) starting from the current hour
+  
   for (let i = firstItem; i >= firstItem && i < lastItem; i++) {
     const forecast = weatherData.list[i];
     const timestamp = new Date(forecast.dt * 1000);
-    // Check if the timestamp is within the next 21 hours
+    
     if (
       timestamp >= now &&
       timestamp <= new Date(now.getTime() + 21 * 60 * 60 * 1000)
