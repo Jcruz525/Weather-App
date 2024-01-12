@@ -20,7 +20,7 @@ function initAutocomplete() {
   autocomplete.addListener("place_changed", function () {
     const selectedPlace = autocomplete.getPlace();
     if (selectedPlace.geometry && selectedPlace.formatted_address) {
-      // Extract the city and state information
+      
       
       let selectedCity= "";
       let state = "";
@@ -34,7 +34,7 @@ function initAutocomplete() {
       console.log(selectedCity)
       city = selectedCity;  
       
-      // Display the selected place in the desired format
+
       cityName.innerHTML = `${city},&nbsp${state}`;
       const input = document.getElementById("cityInput");
   input.value = "";
@@ -61,7 +61,7 @@ let temperatureChart;
 let temptype = "imperial";
 let tempLetter = "F"
 async function createTemperatureChart() {
-  // Destroy the existing chart if it exists
+  
   if (temperatureChart) {
     temperatureChart.destroy();
   }
